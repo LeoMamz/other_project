@@ -1,0 +1,4 @@
+1
+author 2 9
+id int 4 0 0 NULL
+name char(5) 5 1 1 name

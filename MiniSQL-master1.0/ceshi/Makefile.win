@@ -1,0 +1,46 @@
+# Project: ceshi、、
+# Makefile created by Dev-C++ 5.10
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = API.o BufferManager.o CatalogManager.o interpreter.o RecordManager.o main.o IndexManager.o
+LINKOBJ  = API.o BufferManager.o CatalogManager.o interpreter.o RecordManager.o main.o IndexManager.o
+LIBS     = -L"D:/01250510/0618/0809/devc++/Dev-Cpp/MinGW64/lib" -L"D:/01250510/0618/0809/devc++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"D:/01250510/0618/0809/devc++/Dev-Cpp/MinGW64/include" -I"D:/01250510/0618/0809/devc++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/01250510/0618/0809/devc++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"D:/01250510/0618/0809/devc++/Dev-Cpp/MinGW64/include" -I"D:/01250510/0618/0809/devc++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/01250510/0618/0809/devc++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/01250510/0618/0809/devc++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = ceshi、、.exe
+CXXFLAGS = $(CXXINCS) -g3 -std=c++11
+CFLAGS   = $(INCS) -g3 -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+API.o: API.cpp
+	$(CPP) -c API.cpp -o API.o $(CXXFLAGS)
+
+BufferManager.o: BufferManager.cpp
+	$(CPP) -c BufferManager.cpp -o BufferManager.o $(CXXFLAGS)
+
+CatalogManager.o: CatalogManager.cpp
+	$(CPP) -c CatalogManager.cpp -o CatalogManager.o $(CXXFLAGS)
+
+interpreter.o: interpreter.cpp
+	$(CPP) -c interpreter.cpp -o interpreter.o $(CXXFLAGS)
+
+RecordManager.o: RecordManager.cpp
+	$(CPP) -c RecordManager.cpp -o RecordManager.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+IndexManager.o: IndexManager.cpp
+	$(CPP) -c IndexManager.cpp -o IndexManager.o $(CXXFLAGS)
